@@ -47,7 +47,7 @@ public class Shotgun : MonoBehaviour
             {
                 GameObject actualBullet = Instantiate(bullet, transform.position + offSet, Quaternion.identity);
                 Vector3 spread = new Vector2(Random.Range(spreadAngleRange.x, spreadAngleRange.y), Random.Range(spreadAngleRange.x, spreadAngleRange.y));
-                actualBullet.transform.forward = direction + spread;
+                actualBullet.transform.forward = direction.normalized + spread;
             }
             canShoot = false;
             Invoke(nameof(Coldown), cadence);
