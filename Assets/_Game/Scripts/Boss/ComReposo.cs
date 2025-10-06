@@ -13,5 +13,6 @@ public class ComReposo : ComportamientoBoss
 
     public override void Reiniciar()
     {
+        animaciones.SetTrigger("idle");
     }
 }

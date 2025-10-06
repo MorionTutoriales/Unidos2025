@@ -15,6 +15,6 @@ public class ComSeguir : ComportamientoBoss
 
     public override void Reiniciar()
     {
-
+        animaciones.SetTrigger("caminar");
     }
 }

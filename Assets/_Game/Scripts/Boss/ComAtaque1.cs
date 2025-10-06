@@ -48,6 +48,7 @@ public class ComAtaque1 : ComportamientoBoss
     {
         RecalcularPuntos();
         t = 0;
+        animaciones.SetTrigger("baile1");
         agente.SetDestination(transform.position);
     }
 }

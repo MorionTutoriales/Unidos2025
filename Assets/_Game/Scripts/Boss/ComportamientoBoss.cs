@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public abstract class ComportamientoBoss : MonoBehaviour
 {
     protected NavMeshAgent agente;
+    protected Animator  animaciones;
     BossBrain           brain;
     public EstadosBoss  estadoEnemigo;
     public bool         dbujarGizmos;
@@ -16,6 +17,7 @@ public abstract class ComportamientoBoss : MonoBehaviour
     {
         agente = GetComponent<NavMeshAgent>();
         brain = GetComponent<BossBrain>();
+        animaciones = GetComponentInChildren<Animator>();
         brain.RegistrarComportamiento(this);
         Inicializar();
     }
