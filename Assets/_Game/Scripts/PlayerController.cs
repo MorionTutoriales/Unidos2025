@@ -1,74 +1,66 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]
-public class PlayerController : MonoBehaviour
+[RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
+public class PlayerRBController : MonoBehaviour
 {
     [Header("Input Actions")]
-    public InputActionProperty moveAction;     // Vector2 (WASD o stick)
-    public InputActionProperty mousePosAction; // Vector2 (posición del mouse en pantalla)
+    public InputActionProperty moveAction;     // Vector2
+    public InputActionProperty mousePosAction; // Vector2
 
     [Header("Movimiento")]
     public float moveSpeed = 5f;
 
-    [Header("Referencias")]
+    [Header("Refs")]
     public Camera mainCamera;
 
-    private CharacterController controller;
+    Rigidbody rb;
+    Vector3 desiredVel;
 
     void Awake()
     {
-        controller = GetComponent<CharacterController>();
-        if (mainCamera == null) mainCamera = Camera.main;
+        rb = GetComponent<Rigidbody>();
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+        if (!mainCamera) mainCamera = Camera.main;
     }
 
-    void OnEnable()
-    {
-        moveAction.action.Enable();
-        mousePosAction.action.Enable();
-    }
-
-    void OnDisable()
-    {
-        moveAction.action.Disable();
-        mousePosAction.action.Disable();
-    }
+    void OnEnable() { moveAction.action.Enable(); mousePosAction.action.Enable(); }
+    void OnDisable() { moveAction.action.Disable(); mousePosAction.action.Disable(); }
 
     void Update()
     {
-        Mover();
-        ApuntarConMouse();
-    }
-
-    private void Mover()
-    {
+        // calcular velocidad deseada en Update (input)
         Vector2 input = moveAction.action.ReadValue<Vector2>();
-        Vector3 dir = new Vector3(input.x, 0, input.y);
+        Vector3 dir = new Vector3(input.x, 0, input.y).normalized;
+        desiredVel = dir * moveSpeed;
 
-        if (dir.sqrMagnitude > 0.01f)
-        {
-            controller.SimpleMove(dir.normalized * moveSpeed);
-        }
+        ApuntarConMouse(); // solo rota (no mueve)
     }
 
-    private void ApuntarConMouse()
+    void FixedUpdate()
     {
+        // aplicar movimiento suave en físicas
+        Vector3 targetPos = rb.position + desiredVel * Time.fixedDeltaTime;
+        rb.MovePosition(targetPos);
+    }
 
-        if (mainCamera == null) return;
+    void ApuntarConMouse()
+    {
+        if (!mainCamera) return;
 
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        Plane ground = new Plane(Vector3.up, Vector3.zero); // plano en Y=0
-
-        if (ground.Raycast(ray, out float enter))
+        // En vez de un plano fijo Y=0, mejor raycast al ground real:
+        if (Physics.Raycast(ray, out var hit, 200f, ~0, QueryTriggerInteraction.Ignore))
         {
-            Vector3 hitPoint = ray.GetPoint(enter);
-            Vector3 lookDir = hitPoint - transform.position;
+            Vector3 lookDir = hit.point - transform.position;
             lookDir.y = 0;
-
             if (lookDir.sqrMagnitude > 0.01f)
-            {
-                transform.rotation = Quaternion.LookRotation(lookDir);
-            }
+                rb.MoveRotation(Quaternion.LookRotation(lookDir));
         }
+        // Si quieres mantener el plano Y=0:
+        // Plane ground = new Plane(Vector3.up, Vector3.zero);
+        // if (ground.Raycast(ray, out float enter)) { ... }
     }
 }

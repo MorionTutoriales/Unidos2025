@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Transform jugador;
+    public Transform    jugador;
+    public Salud        saludJugador;
+
     public static GameManager singleton;
 
     private void Awake()
@@ -16,15 +18,18 @@ public class GameManager : MonoBehaviour
             DestroyImmediate(this);
         }
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public void RestarVida(float c)
     {
-        
+        saludJugador.RestarVida(c);
+        if (FOVShaker.Instance!=null)
+        {
+            FOVShaker.Instance.Shake(amplitude: 4f, frequency: 15f, duration: 0.2f);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SumarVida(float c)
     {
-        
+        saludJugador.SumarVida(c);
     }
 }

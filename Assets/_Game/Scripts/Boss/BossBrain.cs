@@ -9,12 +9,21 @@ public class BossBrain : MonoBehaviour
     public EstadosBoss estadoActual;
     public List<ComportamientoBoss> comportamientos;
 
+    public float distanciaDetectarJugador = 10;
+
     public bool activo;
     public bool vivo = true;
 
-    private void Start()
+    private IEnumerator Start()
     {
-        Activar();
+        while (!activo)
+        {
+            yield return new WaitForSeconds(2);
+            if ((Vector3.Distance(transform.position, GameManager.singleton.jugador.transform.position) < distanciaDetectarJugador))
+            {
+                Activar();
+            }
+        }
     }
 
     void Update()
@@ -36,11 +45,17 @@ public class BossBrain : MonoBehaviour
     {
         if (!activo)
         {
+            activo = true;
             StartCoroutine(Estadizador());
         }
         activo = true;
     }
 
+    public void VictoriaBoss()
+    {
+        activo = false;
+        CambiarEstado(EstadosBoss.Reposo);
+    }
     public void RegistrarComportamiento(ComportamientoBoss boss)
     {
         comportamientos.Add(boss);
@@ -48,8 +63,9 @@ public class BossBrain : MonoBehaviour
 
     IEnumerator Estadizador()
     {
+        yield return null;
         int i = 0;
-        while (vivo)
+        while (vivo && activo)
         {
             CambiarEstado(estadosSecuencia[i].estado);
             yield return new WaitForSeconds(estadosSecuencia[i].tiempo);
@@ -59,6 +75,12 @@ public class BossBrain : MonoBehaviour
                 i= 0;
             }
         }
+    }
+
+    public void Morir()
+    {
+        activo = false;
+        CambiarEstado(EstadosBoss.Muerto);
     }
 
     void CambiarEstado(EstadosBoss e)
@@ -88,5 +110,6 @@ public enum EstadosBoss
     Seguir,
     Ataque1,
     Ataque2,
-    Ataque3
+    Ataque3,
+    Muerto
 }

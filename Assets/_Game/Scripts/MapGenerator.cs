@@ -53,6 +53,11 @@ public class MapGenerator : MonoBehaviour
 
         MeshGenerator meshGen = GetComponent<MeshGenerator>();
         meshGen.GenerateMesh(borderedMap, 1);
+        GenerarMallaNavegacion();
+    }
+
+    void GenerarMallaNavegacion()
+    {
         mallaNavegacion.BuildNavMesh();
     }
 
