@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 293964010}
   - component: {fileID: 293964009}
   - component: {fileID: 293964011}
+  - component: {fileID: 293964012}
   m_Layer: 6
   m_Name: Jugador
   m_TagString: Player
@@ -583,7 +584,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293964005}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eee4596b031634c4f91aeb959f38516c, type: 3}
   m_Name: 
@@ -594,6 +595,22 @@ MonoBehaviour:
   cadence: 0.7
   bulletsPerShot: 5
   spreadAngleRange: {x: -0.1, y: 0.1}
+--- !u!114 &293964012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293964005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f07363957e19d43a3539269706cbe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 8383183631210813017, guid: 0e321e705aa43904d9d48a9b62a3a090, type: 3}
+  offSet: {x: 0, y: 1, z: 0}
+  cadenceLimitsRange: {x: 0.5, y: 1}
+  cadence: 1
 --- !u!1 &311027024
 GameObject:
   m_ObjectHideFlags: 0
