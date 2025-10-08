@@ -1634,7 +1634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3354474149905926292, guid: 90d98d6ca3de8ad40ac8946b141acece, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8523687294581489346, guid: 90d98d6ca3de8ad40ac8946b141acece, type: 3}
       propertyPath: damage
@@ -3288,7 +3288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1371977372533686703, guid: 08a294f99980a594588950edc0c9853a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5085377981257508170, guid: 08a294f99980a594588950edc0c9853a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3395,6 +3395,10 @@ PrefabInstance:
     - target: {fileID: 6789951262945917087, guid: 30b6c5d701f71d248b182ae4b112fb4e, type: 3}
       propertyPath: damage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789951262945917087, guid: 30b6c5d701f71d248b182ae4b112fb4e, type: 3}
+      propertyPath: radioPatrulla
+      value: 4.33
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
