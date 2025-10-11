@@ -1247,7 +1247,7 @@ MonoBehaviour:
   AnimationFloorLevel: 0.001
   _Editor_Foldout_Setup_LegsList: 1
   _Editor_EnsureCount: 5
-  _Editor_OnValidateTrigger: 0
+  _Editor_OnValidateTrigger: 1
   _EditorAllowAutoUpdateFeetParams: 1
   _EditorCategory: 0
   _EditorSetupCategory: 0
@@ -4180,15 +4180,25 @@ MonoBehaviour:
   mapGenerator: {fileID: 1228843763}
   meshGenerator: {fileID: 1228843765}
   prefabs:
-  - {fileID: 8123141273917358956, guid: 13dd10d6717971d4ea9125d158299b1e, type: 3}
-  - {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d, type: 3}
-  - {fileID: 2304540294968618315, guid: b8217b9c1183a5144b666d1dd63980c4, type: 3}
-  - {fileID: 8954726919292774957, guid: eae42a57b046b1a42a79ae6319bccca3, type: 3}
-  - {fileID: 7570405467501425085, guid: 0ab22827d0f3f0b40a97e9430d684283, type: 3}
-  - {fileID: 2954823824624447290, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
-  - {fileID: 7749838506462483410, guid: d354c41a99993964baca0254487708d1, type: 3}
-  - {fileID: 3318689441606926373, guid: d3ee913ed32937344b0587e70dc777a2, type: 3}
-  - {fileID: 4400482160171448048, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
+  - {fileID: 8907749380832513758, guid: e3c6251768650cb41a1d1b7b3136b2fb, type: 3}
+  - {fileID: 623945382184065941, guid: 20c1ca0f9e4f24d438d71fc3dc8c0641, type: 3}
+  - {fileID: 3928059690366240772, guid: 04854d14778e1cd42988cb6bf216c17b, type: 3}
+  - {fileID: 8717745106217670700, guid: 2645c9516c675ce458b136f29fe9aaff, type: 3}
+  - {fileID: 2545629276540162286, guid: c46c5ae80007a524aaaeff59e6bd84a0, type: 3}
+  - {fileID: 5854986782606169687, guid: 1c1e23a9e4f616c40a84add56050731e, type: 3}
+  - {fileID: 64458749974260595, guid: e9ea43c9698f26d46b39b77ed378788b, type: 3}
+  - {fileID: 3019902284502111305, guid: af5f0bae8db8df249b043587b67169e1, type: 3}
+  - {fileID: 4812669140685292161, guid: d790da63141d95a44bc87dfc6f93a4ad, type: 3}
+  - {fileID: 6859704609645456679, guid: b21e0d488a587034ea94f3efc642dd10, type: 3}
+  - {fileID: 2029256170768603938, guid: d62f19f8b6b320a499400ad3d9da4bce, type: 3}
+  - {fileID: 2600355674001088604, guid: d88044ef0c1afdd499be2655e68d72ea, type: 3}
+  - {fileID: 1085756493352280534, guid: a4774a4dc18423d459be0e1d7a68c2b7, type: 3}
+  - {fileID: 6562670891439623647, guid: efbc33877f5b8fa4f9496976b49c7501, type: 3}
+  - {fileID: 1735274850743609229, guid: 6a1ea14e78d335f46ad6ecdc0933848a, type: 3}
+  - {fileID: 6689285087996645323, guid: 1df401af034a0cc46bf723a2e30b0676, type: 3}
+  - {fileID: 543326562622721095, guid: 0822f85e91c25ce4a8de3738e5f33725, type: 3}
+  - {fileID: 5137412640864297312, guid: ddd765bc746b48c408b2723518fbaac3, type: 3}
+  - {fileID: 6312441008566572615, guid: a85dd98da6f1e0c44a65c4f40893470d, type: 3}
   colocarEnActivos: 0
   usarCentros: 1
   maxObjetos: 2500
@@ -4202,6 +4212,38 @@ MonoBehaviour:
   dibujarGizmos: 0
   gizmoColor: {r: 0.2, g: 1, b: 0.4, a: 0.7}
   gizmoRadio: 0.2
+  rotacionAjuste: {x: 0, y: 1, z: 0}
+--- !u!1 &1091843085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091843086}
+  m_Layer: 0
+  m_Name: Arbol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1091843086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091843085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.625, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1158513966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3128261944699487694, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
@@ -6350,15 +6392,19 @@ MonoBehaviour:
   mapGenerator: {fileID: 1228843763}
   meshGenerator: {fileID: 1228843765}
   prefabs:
-  - {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e, type: 3}
-  - {fileID: 2636820298107493410, guid: a2bd798ea40c7e341aa61ad124d95342, type: 3}
-  - {fileID: 4032642331417584291, guid: e133dac167ef59c40b7678ba58107c6a, type: 3}
-  - {fileID: 6846767348704259191, guid: 273b8f4150121d249ac7e2fd11da7005, type: 3}
-  - {fileID: 4400482160171448048, guid: 18bb023d75a113f4cb8d1452371f5c0e, type: 3}
-  - {fileID: 2954823824624447290, guid: 194e9111af0c33840a49d573f2b26952, type: 3}
+  - {fileID: 1789561119157335995, guid: 664e6db7b84dc824b85a2ff84e36dc38, type: 3}
+  - {fileID: 9197463746790101300, guid: 437a503a8a1301f4e88f1950b1972eda, type: 3}
+  - {fileID: 3019902284502111305, guid: af5f0bae8db8df249b043587b67169e1, type: 3}
+  - {fileID: 1789561119157335995, guid: 664e6db7b84dc824b85a2ff84e36dc38, type: 3}
+  - {fileID: 3928059690366240772, guid: 04854d14778e1cd42988cb6bf216c17b, type: 3}
+  - {fileID: 6689285087996645323, guid: 1df401af034a0cc46bf723a2e30b0676, type: 3}
+  - {fileID: 6312441008566572615, guid: a85dd98da6f1e0c44a65c4f40893470d, type: 3}
+  - {fileID: 5137412640864297312, guid: ddd765bc746b48c408b2723518fbaac3, type: 3}
+  - {fileID: 9197463746790101300, guid: 437a503a8a1301f4e88f1950b1972eda, type: 3}
+  - {fileID: 1789561119157335995, guid: 664e6db7b84dc824b85a2ff84e36dc38, type: 3}
   colocarEnActivos: 1
   usarCentros: 1
-  maxObjetos: 700
+  maxObjetos: 900
   separacionMinima: 0
   yOffset: 1.9
   contenedor: {fileID: 243738015}
@@ -6369,6 +6415,7 @@ MonoBehaviour:
   dibujarGizmos: 0
   gizmoColor: {r: 0.2, g: 1, b: 0.4, a: 0.7}
   gizmoRadio: 0.2
+  rotacionAjuste: {x: 0, y: 1, z: 0}
 --- !u!4 &1568521255
 Transform:
   m_ObjectHideFlags: 0
@@ -6803,9 +6850,9 @@ MonoBehaviour:
   _gizmosEditorEndPreview: {fileID: 0}
   _gizmospeep: {fileID: 0}
   _editor_Title: Tail Animator 2
-  _editor_IsInspectorViewingColliders: 1
+  _editor_IsInspectorViewingColliders: 0
   _editor_IsInspectorViewingIncludedColliders: 0
-  _editor_animatorViewedCounter: -1
+  _editor_animatorViewedCounter: 1
   TailSegments: []
   GhostParent:
     ProceduralPosition: {x: 0, y: 0, z: 0}
@@ -6912,11 +6959,17 @@ MonoBehaviour:
   _Editor_Category: 0
   _Editor_FeaturesCategory: 0
   DrawGizmos: 1
-  StartBone: {fileID: 0}
+  StartBone: {fileID: 1740076515}
   EndBone: {fileID: 0}
   EndBoneJointOffset: {x: 0, y: 0, z: 0}
-  _TransformsGhostChain: []
-  _GhostChainInitCount: -1
+  _TransformsGhostChain:
+  - {fileID: 1740076515}
+  - {fileID: 1740076514}
+  - {fileID: 1740076513}
+  - {fileID: 1740076512}
+  - {fileID: 1740076510}
+  - {fileID: 1740076511}
+  _GhostChainInitCount: 6
   UpdateRate: 0
   AnimatePhysics: 0
   InterpolateRate: 0
@@ -7770,6 +7823,66 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 986638274}
   m_SourcePrefab: {fileID: 100100000, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+--- !u!4 &1740076504 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2512325603885355785, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076505 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -305548511216369265, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076506 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5392460088993983026, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076507 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1719601090488708838, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076508 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -165749107026596424, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076509 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5725050380979773355, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076510 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9079126702201945255, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6772104574476834444, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6317562032542068177, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076513 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1683098514173085059, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076514 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6189238618875602892, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1740076515 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8228769885516904244, guid: d09ec66d98a9ca64a8ca855c88612789, type: 3}
+  m_PrefabInstance: {fileID: 1740076503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1776350340
 GameObject:
   m_ObjectHideFlags: 0
@@ -9403,9 +9516,9 @@ MonoBehaviour:
   _gizmosEditorEndPreview: {fileID: 0}
   _gizmospeep: {fileID: 0}
   _editor_Title: Tail Animator 2
-  _editor_IsInspectorViewingColliders: 1
+  _editor_IsInspectorViewingColliders: 0
   _editor_IsInspectorViewingIncludedColliders: 0
-  _editor_animatorViewedCounter: -1
+  _editor_animatorViewedCounter: 1
   TailSegments: []
   GhostParent:
     ProceduralPosition: {x: 0, y: 0, z: 0}
@@ -9512,11 +9625,17 @@ MonoBehaviour:
   _Editor_Category: 0
   _Editor_FeaturesCategory: 0
   DrawGizmos: 1
-  StartBone: {fileID: 0}
+  StartBone: {fileID: 1740076509}
   EndBone: {fileID: 0}
   EndBoneJointOffset: {x: 0, y: 0, z: 0}
-  _TransformsGhostChain: []
-  _GhostChainInitCount: -1
+  _TransformsGhostChain:
+  - {fileID: 1740076509}
+  - {fileID: 1740076508}
+  - {fileID: 1740076507}
+  - {fileID: 1740076506}
+  - {fileID: 1740076504}
+  - {fileID: 1740076505}
+  _GhostChainInitCount: 6
   UpdateRate: 0
   AnimatePhysics: 0
   InterpolateRate: 0
@@ -9645,3 +9764,4 @@ SceneRoots:
   - {fileID: 1533494327}
   - {fileID: 1991555673}
   - {fileID: 233640161}
+  - {fileID: 1091843086}

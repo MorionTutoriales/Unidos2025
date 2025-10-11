@@ -33,6 +33,7 @@ public class GridObjectSpawner : MonoBehaviour
     public bool dibujarGizmos = true;
     public Color gizmoColor = new Color(0.2f, 1f, 0.4f, 0.7f);
     public float gizmoRadio = 0.2f;
+    public Vector3 rotacionAjuste;
 
     // Cache
     private readonly List<Vector3> candidatos = new List<Vector3>();
@@ -98,7 +99,8 @@ public class GridObjectSpawner : MonoBehaviour
             var prefab = prefabs[Random.Range(0, prefabs.Length)];
             var pos = new Vector3(p.x, p.y + yOffset, p.z);
 
-            Instantiate(prefab, pos, Quaternion.identity, parent);
+            GameObject g = Instantiate(prefab, pos, Quaternion.identity, parent);
+            g.transform.Rotate(rotacionAjuste * Random.Range(0f,360f));
             usados.Add(p);
             creados++;
         }
