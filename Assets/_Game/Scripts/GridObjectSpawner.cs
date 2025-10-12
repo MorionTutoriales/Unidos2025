@@ -100,7 +100,7 @@ public class GridObjectSpawner : MonoBehaviour
             var pos = new Vector3(p.x, p.y + yOffset, p.z);
 
             GameObject g = Instantiate(prefab, pos, Quaternion.identity, parent);
-            g.transform.Rotate(rotacionAjuste * Random.Range(0f,360f));
+            g.transform.Rotate(rotacionAjuste * Random.Range(0f,360f) );
             usados.Add(p);
             creados++;
         }

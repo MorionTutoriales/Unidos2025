@@ -7,6 +7,7 @@ public class EnemigoEstatico : EnemigoBase
     public GameObject proyectilPrefab; // proyectil a instanciar
     public Transform puntoDisparo; // Punto desde donde sale el proyectil
     public float tiempoEntreDisparos = 2f; // Tiempo configurable entre disparos
+    public Animator animator;
 
     private float temporizadorDisparo = 0f;
     private Transform jugador;
@@ -26,11 +27,24 @@ public class EnemigoEstatico : EnemigoBase
         // Si el jugador esta dentro del rango de visión y el temporizador permite disparar
         if (Vector3.Distance(transform.position, jugador.position) <= rangoVision)
         {
+            transform.LookAt(GameManager.singleton.jugador.transform.position);
             if (temporizadorDisparo <= 0f)
             {
                 Atacar(jugador.gameObject);
                 temporizadorDisparo = tiempoEntreDisparos; // Reinicia el intervalo
             }
+        }
+    }
+
+    public void Instanciar()
+    {
+        // Instanciamos el proyectil
+        GameObject bala = Instantiate(proyectilPrefab, puntoDisparo.position, puntoDisparo.rotation);
+
+        Rigidbody rb = bala.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = puntoDisparo.forward * 10f;
         }
     }
 
@@ -44,16 +58,10 @@ public class EnemigoEstatico : EnemigoBase
         if (proyectilPrefab != null && puntoDisparo != null)
         {
             // Hacemos que el punto de disparo mire al jugador
+            transform.LookAt(objetivo.transform.position);
             puntoDisparo.LookAt(objetivo.transform.position);
-
-            // Instanciamos el proyectil
-            GameObject bala = Instantiate(proyectilPrefab, puntoDisparo.position, puntoDisparo.rotation);
-
-            Rigidbody rb = bala.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.linearVelocity = puntoDisparo.forward * 10f;
-            }
+            animator?.SetTrigger("atacar");
+            
         }
     }
 
