@@ -7,11 +7,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] float speed;
 
-    private void Start()
-    {
-        Invoke(nameof(DestroyItself), 3f);
-    }
-
     private void OnTriggerEnter(Collider collision)
     {
         if (!collision.transform.CompareTag("Player") && !collision.transform.CompareTag("Bullet"))
