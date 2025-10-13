@@ -269,6 +269,7 @@ MonoBehaviour:
   vivo: 1
   sliderVida: {fileID: 0}
   imVida: {fileID: 6552814053061494653}
+  instanciarAlMorir: {fileID: 2391095667620174190, guid: 08a04d06f6ab40646b1c034740a0d690, type: 3}
 --- !u!1001 &177439354942491834
 PrefabInstance:
   m_ObjectHideFlags: 0

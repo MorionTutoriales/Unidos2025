@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cc137a4491154eb48901851501a7612b
+guid: b3cf7b34ca7952049ad15ef6c4f0d3f4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -11,8 +11,8 @@ MonoImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 166813
-  packageName: Stylized Explosion Effects 1
-  packageVersion: 1.1
+  productId: 169179
+  packageName: Stylized VFX Free Pack
+  packageVersion: 1.0
   assetPath: Assets/FXIFIED/common/Scripts/Quit.cs
-  uploadId: 399066
+  uploadId: 369288

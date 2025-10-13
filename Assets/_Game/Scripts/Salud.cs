@@ -13,6 +13,8 @@ public class Salud : MonoBehaviour
     public Slider   sliderVida;
     public Image    imVida;
 
+    public GameObject instanciarAlMorir;
+
     private void Start()
     {
         vidaActual = vidaMaxima;
@@ -30,6 +32,10 @@ public class Salud : MonoBehaviour
         {
             eventoMuerte.Invoke();
             vivo = false;
+            if (instanciarAlMorir!= null)
+            {
+                Instantiate(instanciarAlMorir, transform.position,transform.rotation);
+            }
         }
         if (vidaActual>vidaMaxima)
         {
