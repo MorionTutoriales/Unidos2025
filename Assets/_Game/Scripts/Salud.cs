@@ -8,9 +8,10 @@ public class Salud : MonoBehaviour
     public float vidaActual;
 
     public UnityEvent eventoMuerte;
-    public bool vivo = true;
+    public bool     vivo = true;
 
-    public Slider sliderVida;
+    public Slider   sliderVida;
+    public Image    imVida;
 
     private void Start()
     {
@@ -36,7 +37,11 @@ public class Salud : MonoBehaviour
         }
         if (sliderVida != null)
         {
-            sliderVida.value = vidaActual/vidaMaxima;
+            sliderVida.value = vidaActual / vidaMaxima;
+        }
+        if (imVida != null)
+        {
+            imVida.fillAmount = vidaActual / vidaMaxima;
         }
     }
 

@@ -84,7 +84,7 @@ public class EnemigoHibrido : EnemigoBase
 
     private void ComportamientoPersecucion(float distancia)
     {
-        if (distancia > distanciaDetencion)
+        if (distancia > distanciaDetencion+0.2f)
         {
             agente.isStopped = false;
             agente.SetDestination(jugador.position);
@@ -113,7 +113,7 @@ public class EnemigoHibrido : EnemigoBase
             temporizadorAtaque = tiempoEntreAtaques;
         }
     }
-    void CausarDamage()
+    public void CausarDamage()
     {
         GameManager.singleton.RestarVida(damage);
     }
@@ -122,7 +122,7 @@ public class EnemigoHibrido : EnemigoBase
         if (!aDistancia)
         {
             animator?.SetTrigger("atacar");
-            Invoke("CausarDamage", 0.3f);
+            //Invoke("CausarDamage", 0.3f);
         }
         else
         {
@@ -136,6 +136,15 @@ public class EnemigoHibrido : EnemigoBase
                     rb.linearVelocity = puntoDisparo.forward * 10f;
             }
         }
+    }
+
+    public void Morir()
+    {
+        agente.isStopped = true;
+        agente.enabled = false;
+        this.enabled = false;
+        Destroy(gameObject, 5);
+        animator.SetTrigger("morir");
     }
 
     private void OnDrawGizmosSelected()

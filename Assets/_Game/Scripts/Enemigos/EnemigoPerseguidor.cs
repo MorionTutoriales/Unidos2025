@@ -1,103 +1,146 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemigoPerseguidor : EnemigoBase
 {
-    [Header("Configuracion de Persecucion")]
-    public float distanciaAtaque = 1.0f; // Distancia minima para atacar al jugador
-    public float tiempoEntreAtaques = 1.5f; // Intervalo entre ataques
+    [Header("Configuración de Persecución")]
+    public float distanciaAtaque = 1.0f;      // Distancia mínima para atacar al jugador
+    public float tiempoEntreAtaques = 1.5f;   // Intervalo entre ataques
+    public Animator animator;
 
-    private float temporizadorAtaque = 0f; // Temporizador de ataques
+    private float temporizadorAtaque = 0f;    // Temporizador de ataques
     private Transform jugador;
-    private Rigidbody rb;
+    private NavMeshAgent agente;
+    public float bloqueo;
 
     private void Start()
     {
-        jugador = GameObject.FindGameObjectWithTag("Player")?.transform; // Buscamos al jugador en la scena
+        jugador = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-        if (rb == null) Debug.LogWarning($"{gameObject.name} no tiene un Rigidbody asignado.");
-        rb = GetComponent<Rigidbody>();    
+        // Intentamos obtener o agregar el NavMeshAgent
+        agente = GetComponent<NavMeshAgent>();
+        if (agente == null)
+        {
+            Debug.LogWarning($"{gameObject.name} no tiene NavMeshAgent, se agregará automáticamente.");
+            agente = gameObject.AddComponent<NavMeshAgent>();
+        }
+
+        // Configuramos el agente según los valores del enemigo base
+        agente.speed = velocidad;
+        agente.angularSpeed = 360f;
+        agente.acceleration = 20f;
+        agente.stoppingDistance = distanciaAtaque;
+        agente.autoBraking = true;
+        agente.updateRotation = true; // para que mire hacia donde se mueve
+
+        float distancia = Vector3.Distance(transform.position, jugador.position);
+        bloqueo = Time.time + distancia*2;
+        StartCoroutine(ReDistanciador());
     }
 
-    private void FixedUpdate()
+    IEnumerator ReDistanciador()
     {
-        if (jugador == null || rb == null) return;
-        
-        float distancia = Vector3.Distance(transform.position, jugador.position); // Calculamos la distancia entre este enemigo y el jugador
-
-        if (distancia > distanciaAtaque)
+        float distancia = Vector3.Distance(transform.position, jugador.position);
+        while (distancia > 10)
         {
-            // Si la distancia es mayor nos movemos hacia el jugador
+            distancia = Vector3.Distance(transform.position, jugador.position);
+            yield return new WaitForSeconds(1);
+        }
+        bloqueo = 0;
+    }
+
+    private void Update()
+    {
+        
+        if (jugador == null || Time.time < bloqueo) return;
+
+        float distancia = Vector3.Distance(transform.position, jugador.position);
+
+        if (distancia > distanciaAtaque+0.2f)
+        {
+            // Si está lejos, perseguimos al jugador
             MoverHaciaJugador();
         }
         else
         {
-            // Sino nos denetemos y atacamos
+            // Si está dentro del rango de ataque
             DetenerMovimiento();
             IntentarAtacar();
         }
     }
 
     /// <summary>
-    /// Invocado para movernos directamente hacia el player
+    /// Mueve el enemigo hacia el jugador usando el NavMeshAgent.
     /// </summary>
     private void MoverHaciaJugador()
     {
-        Vector3 direccion = (jugador.position - transform.position).normalized;
-
-        // Usamos la velocidad heredada desde EnemigoBase
-        rb.MovePosition(rb.position + direccion * velocidad * Time.fixedDeltaTime);
-
-        // Hacer que mire hacia el jugador
-        transform.LookAt(jugador);
+        if (!agente.pathPending)
+        {
+            transform.LookAt(GameManager.singleton.jugador.transform, Vector3.up);
+            agente.isStopped = false;
+            agente.SetDestination(jugador.position);
+        }
     }
 
     /// <summary>
-    /// Metodo para detener el movimiento del enemigo
+    /// Detiene el movimiento del enemigo.
     /// </summary>
     private void DetenerMovimiento()
     {
-        rb.linearVelocity = Vector3.zero;
+        if (agente.enabled)
+        {
+            agente.isStopped = true;
+            agente.ResetPath();
+        }
+    }
+
+    public void MorirTotal()
+    {
+        DetenerMovimiento();
+        this.enabled = false;
+        Destroy(gameObject, 5);
+        animator.SetTrigger("morir");
     }
 
     /// <summary>
-    /// Invocado para internar atacar al enemigo
+    /// Invocado para intentar atacar al jugador.
     /// </summary>
     private void IntentarAtacar()
     {
-        // Controla la frecuencia de ataque para no hacerlo en cada frame
         temporizadorAtaque -= Time.deltaTime;
 
         if (temporizadorAtaque <= 0f)
         {
-            Atacar(jugador.gameObject);
+            animator?.SetTrigger("atacar");
+            //Atacar(jugador.gameObject);
             temporizadorAtaque = tiempoEntreAtaques;
         }
     }
 
     /// <summary>
-    /// Metodo sobreescrito para atacar el objetivo
+    /// Método sobreescrito para atacar al objetivo.
     /// </summary>
-    /// <param name="objetivo"> El jugador </param>
     public override void Atacar(GameObject objetivo)
     {
-        // Dañamos al jugador
-        GameManager.singleton.RestarVida(damage);
+        float distancia = Vector3.Distance(transform.position, jugador.position);
+
+        if (distancia < distanciaAtaque + 0.2f)
+        {
+            // Si está lejos, perseguimos al jugador
+            GameManager.singleton.RestarVida(damage);
+        }
+        
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanciaAtaque);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        ////Verificamos si el objeto que nos golpea es un proyectil del player
-        //if (other.CompareTag("Proyectil"))
-        //{
-        //    // Obtenemos el componente del proyectil del jugador
-        //    Proyectil proyectil = other.GetComponent<Proyectil>();
-        //    if (proyectil != null)
-        //    {
-        //        RecibirDamage(proyectil.damage);
-        //    }
-
-        //    //destruir el proyectil después del impacto
-        //    Destroy(other.gameObject);
-        //}
+        //// Si quieres reactivar la detección de proyectiles, puedes usar el código anterior aquí
     }
 }

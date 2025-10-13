@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public Transform    jugador;
     public Salud        saludJugador;
+    public Salud        saludSupay;
 
     public static GameManager singleton;
 

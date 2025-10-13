@@ -37,7 +37,7 @@ public abstract class EnemigoBase : MonoBehaviour, IEnemigo
     /// </summary>
     protected virtual void Morir()
     {
-        Debug.Log($"{gameObject.name} murió.");
-        Destroy(gameObject);
+        //Debug.Log($"{gameObject.name} murió.");
+        //Destroy(gameObject);
     }
 }

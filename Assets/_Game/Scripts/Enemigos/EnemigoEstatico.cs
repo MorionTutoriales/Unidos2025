@@ -35,6 +35,12 @@ public class EnemigoEstatico : EnemigoBase
             }
         }
     }
+    public void Morir()
+    {
+        this.enabled = false;
+        Destroy(gameObject, 5);
+        animator.SetTrigger("morir");
+    }
 
     public void Instanciar()
     {
