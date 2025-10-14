@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/_Game/Scenes/Menu.unity
+    guid: 3510dfb929ee76d47858ad83940a9eb8
+  - enabled: 1
+    path: Assets/_Game/Scenes/Morion.unity
+    guid: d9f9f06b34cc74a4cbc6ea778994dc94
+  - enabled: 1
+    path: Assets/_Game/Scenes/Victoria.unity
+    guid: 65836e6b6598b104ebff38ea00db6a84
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

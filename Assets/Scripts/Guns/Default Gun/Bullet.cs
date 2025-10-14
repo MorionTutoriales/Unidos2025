@@ -6,17 +6,22 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
     [SerializeField] float speed;
-
-    private void Start()
-    {
-        Invoke(nameof(DestroyItself), 3f);
-    }
+    public float poder;
 
     private void OnTriggerEnter(Collider collision)
     {
         if (!collision.transform.CompareTag("Player") && !collision.transform.CompareTag("Bullet"))
         {
             DestroyItself();
+            Salud s = collision.GetComponent<Salud>();
+            if (s != null)
+            {
+                s.RestarVida(poder);
+            }
+        }
+        if (collision.CompareTag("Supay"))
+        {
+            GameManager.singleton.saludSupay.RestarVida(poder);
         }
     }
 

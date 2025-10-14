@@ -8,6 +8,7 @@ public class BossBrain : MonoBehaviour
 
     public EstadosBoss estadoActual;
     public List<ComportamientoBoss> comportamientos;
+    public GameObject slVida;
 
     public float distanciaDetectarJugador = 10;
 
@@ -47,8 +48,10 @@ public class BossBrain : MonoBehaviour
         {
             activo = true;
             StartCoroutine(Estadizador());
+            slVida.SetActive(true);
         }
         activo = true;
+
     }
 
     public void VictoriaBoss()

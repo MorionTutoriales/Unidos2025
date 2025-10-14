@@ -68,6 +68,7 @@ MonoBehaviour:
     tiempo: 2
   estadoActual: 0
   comportamientos: []
+  slVida: {fileID: 0}
   distanciaDetectarJugador: 10
   activo: 0
   vivo: 1
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d41e0b1740e6b74680a533a161cb10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaMaxima: 50
+  vidaMaxima: 100
   vidaActual: 0
   eventoMuerte:
     m_PersistentCalls:
@@ -209,6 +210,7 @@ MonoBehaviour:
         m_CallState: 2
   vivo: 1
   sliderVida: {fileID: 0}
+  imVida: {fileID: 0}
 --- !u!54 &4937675567444435420
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -517,7 +519,7 @@ GameObject:
   - component: {fileID: 8032831806576529607}
   m_Layer: 0
   m_Name: Damager
-  m_TagString: Untagged
+  m_TagString: Supay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

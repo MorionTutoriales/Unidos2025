@@ -8,9 +8,12 @@ public class Salud : MonoBehaviour
     public float vidaActual;
 
     public UnityEvent eventoMuerte;
-    public bool vivo = true;
+    public bool     vivo = true;
 
-    public Slider sliderVida;
+    public Slider   sliderVida;
+    public Image    imVida;
+
+    public GameObject instanciarAlMorir;
 
     private void Start()
     {
@@ -29,6 +32,10 @@ public class Salud : MonoBehaviour
         {
             eventoMuerte.Invoke();
             vivo = false;
+            if (instanciarAlMorir!= null)
+            {
+                Instantiate(instanciarAlMorir, transform.position,transform.rotation);
+            }
         }
         if (vidaActual>vidaMaxima)
         {
@@ -36,7 +43,11 @@ public class Salud : MonoBehaviour
         }
         if (sliderVida != null)
         {
-            sliderVida.value = vidaActual/vidaMaxima;
+            sliderVida.value = vidaActual / vidaMaxima;
+        }
+        if (imVida != null)
+        {
+            imVida.fillAmount = vidaActual / vidaMaxima;
         }
     }
 

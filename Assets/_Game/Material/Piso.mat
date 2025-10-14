@@ -69,7 +69,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Paredes:
-        m_Texture: {fileID: 2800000, guid: aa9e9f540ef15084cb3047e8e775b964, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6fc6ad852dcce4d44b16988ead12603b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -129,7 +129,7 @@ Material:
     - _ZWrite: 1
     - _ajuste: 1.05
     - _cotaInferior: 1.61
-    - _cotaSuperior: 1.17
+    - _cotaSuperior: 0.71
     - _normalizador: 0.88
     - _rapos: 1.63
     - _tama_o: 0.5
