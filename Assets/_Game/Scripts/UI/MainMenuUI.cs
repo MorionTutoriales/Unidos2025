@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class MainMenuUI : MonoBehaviour
 {
     [Header("Main Menu Elements")]
-    [SerializeField] private Image characterImage;
+    [SerializeField] private RawImage characterImage;
     [SerializeField] private Button playButton;
     [SerializeField] private Button aboutButton;
     [SerializeField] private Button exitButton;
