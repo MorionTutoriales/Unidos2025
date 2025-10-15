@@ -5,15 +5,34 @@ using UnityEngine;
 public class UpgradeSystem : MonoBehaviour
 {
     public int upgradesCount = 5;
-    Gun gun;
+    public ParentGun[] guns;
 
     private void Awake()
     {
-        gun = GetComponent<Gun>();
+        guns = GetComponents<ParentGun>();
     }
 
-    public void UpgradeGun()
+    public void CadenceUpgrade()
     {
-        gun.IncreaseCadence();
+        for (int i = 0; i < guns.Length; i++)
+        {
+            guns[i].IncreaseCadence();
+        }
+    }
+
+    public void RangeUpgrade()
+    {
+        for (int i = 0; i < guns.Length; i++)
+        {
+            guns[i].IncreaseTimelife();
+        }
+    }
+
+    public void DamageUpgrade()
+    {
+        for (int i = 0; i < guns.Length; i++)
+        {
+            guns[i].IncreaseDamage();
+        }
     }
 }
