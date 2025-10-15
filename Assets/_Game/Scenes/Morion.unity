@@ -191,6 +191,8 @@ MonoBehaviour:
   progresoMaximo: 20
   slProgreso: {fileID: 1005362687}
   enPausa: 0
+  shotgunPicked: 0
+  followergunPicked: 0
   imProgreso: {fileID: 0}
 --- !u!1 &60542640
 GameObject:
@@ -5250,6 +5252,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5938108576049587555, guid: ea9553664670d8c4c91471f9f555f3b9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7844641141267900781, guid: ea9553664670d8c4c91471f9f555f3b9, type: 3}
       propertyPath: sliderVida
       value: 
@@ -5320,6 +5326,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8854483677984341360, guid: ea9553664670d8c4c91471f9f555f3b9, type: 3}
       propertyPath: _Editor_OnValidateTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857801179981128055, guid: ea9553664670d8c4c91471f9f555f3b9, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
