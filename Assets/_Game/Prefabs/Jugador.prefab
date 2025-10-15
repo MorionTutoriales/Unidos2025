@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8857801179981128055}
   - component: {fileID: 5938108576049587555}
   - component: {fileID: 4684487302593278452}
+  - component: {fileID: 8250438228864825143}
   m_Layer: 6
   m_Name: Jugador
   m_TagString: Player
@@ -193,9 +194,6 @@ MonoBehaviour:
   cadence: 0.7
   timeLife: 0.7
   damage: 3
-  cadenceIncreaseFactor: 0
-  damageIncreaseFactor: 0
-  timelifeIncreaseFactor: 0
 --- !u!114 &8857801179981128055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,9 +214,6 @@ MonoBehaviour:
   cadence: 0.7
   timeLife: 0.7
   damage: 3
-  cadenceIncreaseFactor: 0
-  damageIncreaseFactor: 0
-  timelifeIncreaseFactor: 0
   bulletsPerShot: 5
   spreadAngleRange: {x: -0.1, y: 0.1}
 --- !u!114 &5938108576049587555
@@ -241,9 +236,6 @@ MonoBehaviour:
   cadence: 0.7
   timeLife: 0.7
   damage: 3
-  cadenceIncreaseFactor: 0
-  damageIncreaseFactor: 0
-  timelifeIncreaseFactor: 0
 --- !u!114 &4684487302593278452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +249,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradesCount: 5
+--- !u!114 &8250438228864825143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766137139706394608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38dd6964d9f2bb41b8d0f6e28c947fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotgun: {fileID: 8857801179981128055}
+  followergun: {fileID: 5938108576049587555}
+  defaultgun: {fileID: 5477257626509253842}
+  currentGunType: 0
 --- !u!1 &3688570862646122139
 GameObject:
   m_ObjectHideFlags: 0

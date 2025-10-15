@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public Slider slProgreso;
     
     public bool enPausa = false;
+    public bool shotgunPicked = false;
+    public bool followergunPicked = false;
     public Image imProgreso;
 
     private void Awake()

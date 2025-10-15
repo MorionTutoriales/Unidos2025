@@ -5,7 +5,7 @@ using UnityEngine;
 public class UpgradeSystem : MonoBehaviour
 {
     public int upgradesCount = 5;
-    public ParentGun[] guns;
+    ParentGun[] guns;
 
     private void Awake()
     {
