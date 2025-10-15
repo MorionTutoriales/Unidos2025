@@ -84,6 +84,12 @@ public class BossBrain : MonoBehaviour
     {
         activo = false;
         CambiarEstado(EstadosBoss.Muerto);
+        Invoke("CambiarEscena", 3);
+    }
+
+    void CambiarEscena()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Victoria");
     }
 
     void CambiarEstado(EstadosBoss e)
