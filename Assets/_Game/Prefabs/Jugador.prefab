@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5477257626509253842}
   - component: {fileID: 8857801179981128055}
   - component: {fileID: 5938108576049587555}
+  - component: {fileID: 4684487302593278452}
   m_Layer: 6
   m_Name: Jugador
   m_TagString: Player
@@ -120,6 +121,8 @@ MonoBehaviour:
         m_CallState: 2
   vivo: 1
   sliderVida: {fileID: 0}
+  imVida: {fileID: 0}
+  instanciarAlMorir: {fileID: 0}
 --- !u!54 &3327367822627039253
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -183,12 +186,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 8383183631210813017, guid: 1adffe459acd1844481300dd3abc4162, type: 3}
-  offSet: {x: 0, y: 1, z: 0}
+  offSet: {x: 0, y: 0.6, z: 0}
   cadenceLimitsRange: {x: 0.1, y: 0.7}
-  damageLimitsRange: {x: 0, y: 0}
+  damageLimitsRange: {x: 3, y: 10}
   timelifeLimitsRange: {x: 1, y: 3}
   cadence: 0.7
   timeLife: 0.7
+  damage: 3
+  cadenceIncreaseFactor: 0
+  damageIncreaseFactor: 0
+  timelifeIncreaseFactor: 0
 --- !u!114 &8857801179981128055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,12 +209,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 8383183631210813017, guid: 1adffe459acd1844481300dd3abc4162, type: 3}
-  offSet: {x: 0, y: 1, z: 0}
+  offSet: {x: 0, y: 0.6, z: 0}
   cadenceLimitsRange: {x: 0.3, y: 0.9}
-  damageLimitsRange: {x: 0, y: 0}
+  damageLimitsRange: {x: 0.5, y: 2}
   timelifeLimitsRange: {x: 1, y: 3}
   cadence: 0.7
   timeLife: 0.7
+  damage: 3
+  cadenceIncreaseFactor: 0
+  damageIncreaseFactor: 0
+  timelifeIncreaseFactor: 0
   bulletsPerShot: 5
   spreadAngleRange: {x: -0.1, y: 0.1}
 --- !u!114 &5938108576049587555
@@ -223,12 +234,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 8383183631210813017, guid: 0e321e705aa43904d9d48a9b62a3a090, type: 3}
-  offSet: {x: 0, y: 1, z: 0}
+  offSet: {x: 0, y: 0.6, z: 0}
   cadenceLimitsRange: {x: 0.5, y: 1}
-  damageLimitsRange: {x: 0, y: 0}
+  damageLimitsRange: {x: 1.5, y: 7}
   timelifeLimitsRange: {x: 1, y: 3}
   cadence: 0.7
   timeLife: 0.7
+  damage: 3
+  cadenceIncreaseFactor: 0
+  damageIncreaseFactor: 0
+  timelifeIncreaseFactor: 0
+--- !u!114 &4684487302593278452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766137139706394608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04fcf6d30558da42a2cc77bcad8748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradesCount: 5
 --- !u!1 &3688570862646122139
 GameObject:
   m_ObjectHideFlags: 0

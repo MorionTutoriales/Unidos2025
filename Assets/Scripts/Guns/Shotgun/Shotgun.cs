@@ -15,7 +15,7 @@ public class Shotgun : ParentGun
             for (int i = 0; i < bulletsPerShot; i++)
             {
                 GameObject actualBullet = Instantiate(bullet, transform.position + offSet, Quaternion.identity);
-                DestroyBulletWithTime(actualBullet);
+                SetBullet(actualBullet);
                 Vector3 spread = new Vector2(Random.Range(spreadAngleRange.x, spreadAngleRange.y), Random.Range(spreadAngleRange.x, spreadAngleRange.y));
                 actualBullet.transform.forward = direction.normalized + spread;
             }

@@ -12,7 +12,7 @@ public class Gun : ParentGun
             Vector3 fixedDirection = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             Vector3 direction = fixedDirection - transform.position;
             GameObject actualBullet = Instantiate(bullet, transform.position + offSet, Quaternion.identity);
-            DestroyBulletWithTime(actualBullet);
+            SetBullet(actualBullet);
             actualBullet.transform.forward = direction;
             canShoot = false;
             Invoke(nameof(Coldown), cadence);
