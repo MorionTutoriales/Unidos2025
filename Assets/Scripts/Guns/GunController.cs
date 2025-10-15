@@ -6,6 +6,8 @@ public class GunController : MonoBehaviour
     public ParentGun shotgun;
     public ParentGun followergun;
     public ParentGun defaultgun;
+    public GameObject shotgunButton;
+    public GameObject followerGunButton;
     public GunType currentGunType = GunType.Default;
 
     private void OnTriggerEnter(Collider other)
@@ -14,11 +16,13 @@ public class GunController : MonoBehaviour
         {
             if (pickGun.gunType == GunType.Shotgun && !GameManager.singleton.shotgunPicked)
             {
+                shotgunButton.SetActive(true);
                 GameManager.singleton.shotgunPicked = true;
                 shotgun.enabled = true;
             }
             else if (pickGun.gunType == GunType.FollowerGun && !GameManager.singleton.followergunPicked)
             {
+                followerGunButton.SetActive(true);
                 GameManager.singleton.followergunPicked = true;
                 followergun.enabled = true;
             }
@@ -32,6 +36,13 @@ public class GunController : MonoBehaviour
         defaultgun.enabled = gunName == "Default";
         shotgun.enabled = gunName == "Shotgun";
         followergun.enabled = gunName == "FollowerGun";
+    }
+
+    public void SwitchGun(string gunType)
+    {
+        defaultgun.enabled = gunType == "Default";
+        shotgun.enabled = gunType == "Shotgun";
+        followergun.enabled = gunType == "FollowerGun";
     }
 
     public bool IsGunActive(GunType gunType)

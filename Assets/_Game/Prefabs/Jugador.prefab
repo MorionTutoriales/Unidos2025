@@ -209,13 +209,13 @@ MonoBehaviour:
   bullet: {fileID: 8383183631210813017, guid: 1adffe459acd1844481300dd3abc4162, type: 3}
   offSet: {x: 0, y: 0.6, z: 0}
   cadenceLimitsRange: {x: 0.3, y: 0.9}
-  damageLimitsRange: {x: 0.5, y: 2}
+  damageLimitsRange: {x: 0.7, y: 3}
   timelifeLimitsRange: {x: 1, y: 3}
   cadence: 0.7
   timeLife: 0.7
   damage: 3
   bulletsPerShot: 5
-  spreadAngleRange: {x: -0.1, y: 0.1}
+  spreadAngleRange: {x: -0.3, y: 0.3}
 --- !u!114 &5938108576049587555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +264,8 @@ MonoBehaviour:
   shotgun: {fileID: 8857801179981128055}
   followergun: {fileID: 5938108576049587555}
   defaultgun: {fileID: 5477257626509253842}
+  shotgunButton: {fileID: 0}
+  followerGunButton: {fileID: 0}
   currentGunType: 0
 --- !u!1 &3688570862646122139
 GameObject:
