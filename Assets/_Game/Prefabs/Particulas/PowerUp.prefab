@@ -9730,7 +9730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f907a2e501aa23e489ec1c59d81f3833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progresoAdicional: 5
+  progresoAdicional: 2
 --- !u!1 &2763318570051906131
 GameObject:
   m_ObjectHideFlags: 0
