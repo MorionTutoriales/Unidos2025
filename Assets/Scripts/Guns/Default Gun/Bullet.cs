@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
             if (s != null)
             {
                 s.RestarVida(poder);
+                Debug.Log($"Le pegue a algo con salud y le hice: {poder} de daño");
             }
         }
         if (collision.CompareTag("Supay"))

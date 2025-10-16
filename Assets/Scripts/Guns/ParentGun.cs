@@ -17,7 +17,7 @@ public class ParentGun : MonoBehaviour
     protected float timelifeIncreaseFactor = 0;
     protected bool canShoot = true;
 
-    private void Start()
+    protected void Start()
     {
         GetcadenceIncreaseFactor();
         GetTimelifeIncreaseFactor();
